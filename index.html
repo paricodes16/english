@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tense Trainer</title>
+  <meta name="description" content="Practise English tenses with fill-in-the-blank, multiple choice and spot-the-error questions.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <a class="back" href="../">&larr; All English lessons</a>
+        <h1>Tense Trainer</h1>
+        <p class="tag">Practise English tenses, one question at a time.</p>
+      </div>
+      <nav class="tabs" aria-label="Sections">
+        <button type="button" id="tabPractice" class="tab" aria-pressed="true">Practice</button>
+        <button type="button" id="tabGuide" class="tab" aria-pressed="false">Tense guide</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Home / setup -->
+      <section id="viewHome">
+        <div class="card">
+          <h2>Set up your practice</h2>
+
+          <div class="field">
+            <span class="label" id="lblType">Question type</span>
+            <div class="seg" id="segType" role="group" aria-labelledby="lblType"></div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="tenseSelect">Tense</label>
+            <select id="tenseSelect"></select>
+          </div>
+
+          <div class="field">
+            <span class="label" id="lblLevel">Level</span>
+            <div class="seg" id="segLevel" role="group" aria-labelledby="lblLevel"></div>
+          </div>
+
+          <div class="field">
+            <span class="label" id="lblCount">Number of questions</span>
+            <div class="seg" id="segCount" role="group" aria-labelledby="lblCount"></div>
+          </div>
+
+          <div class="start-row">
+            <button type="button" id="startBtn" class="btn primary big">Start</button>
+            <span id="matchInfo" class="muted" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Your progress</h2>
+          <div id="progressList" class="progress-list"></div>
+          <div class="row-actions">
+            <button type="button" id="weakBtn" class="btn">Practise my weakest tense</button>
+            <button type="button" id="resetBtn" class="btn quiet">Reset progress</button>
+          </div>
+          <p id="weakMsg" class="muted" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <!-- Quiz -->
+      <section id="viewQuiz" hidden>
+        <div class="quiz-bar">
+          <span id="qCount" class="muted"></span>
+          <span id="qScore" class="muted"></span>
+          <button type="button" id="quitBtn" class="btn quiet small">End session</button>
+        </div>
+        <div class="meter" aria-hidden="true"><div id="meterFill" class="meter-fill"></div></div>
+
+        <div class="card q-card" id="qCard">
+          <p id="qType" class="q-type"></p>
+          <div id="qBody"></div>
+          <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+          <div class="q-actions">
+            <button type="button" id="checkBtn" class="btn primary">Check</button>
+            <button type="button" id="nextBtn" class="btn primary" hidden>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section id="viewResults" hidden>
+        <div class="card">
+          <h2>Session complete</h2>
+          <p id="resScore" class="big-score"></p>
+          <p id="resMsg" class="muted"></p>
+          <div id="resBreakdown" class="breakdown"></div>
+          <div class="row-actions">
+            <button type="button" id="againBtn" class="btn primary">Practise again</button>
+            <button type="button" id="retryBtn" class="btn">Retry my mistakes</button>
+            <button type="button" id="homeBtn" class="btn quiet">Back to start</button>
+          </div>
+        </div>
+        <div class="card" id="mistakesCard">
+          <h2>Review your mistakes</h2>
+          <div id="mistakes"></div>
+        </div>
+      </section>
+
+      <!-- Guide -->
+      <section id="viewGuide" hidden>
+        <div class="card">
+          <h2>Tense guide</h2>
+          <p class="muted">Open a tense to see how it is formed, when to use it and the words that often go with it.</p>
+          <div id="guideList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">Progress is saved in this browser only.</footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
